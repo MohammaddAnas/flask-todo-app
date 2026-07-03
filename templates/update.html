@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block body %}
+  
+  
+<div class="container my-3">
+    <h2>UPDATE TODO 🔄</h2>
+    <form action="/update/{{todo.sno}}"method="POST">
+     <div class="mb-3">
+    <label for="title" class="form-label">TODO TITLE</label>
+    <input type="text" class="form-control" name="title" value="{{todo.title}}" aria-describedby="emailHelp">
+    <div class="form-text">enetr Todo Title</div>
+  </div>
+  <div class="mb-3">
+    <label for="desc" class="form-label">Description</label>
+    <input type="desc" class="form-control" name="desc" value={{todo.desc}}>
+  </div>
+  <div class="mb-3 form-check">
+    
+  </div>
+  <button type="submit" class="btn btn-primary">update</button>
+</form>
+</div>
+
+
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  
+    
+      
+    {% endblock body %}
+
+
+    

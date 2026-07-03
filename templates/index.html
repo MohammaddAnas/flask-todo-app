@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container my-3">
+  <h2>ADD A TODOS ➕</h2>
+
+  <form action="/" method="POST">
+    <div class="mb-3">
+      <label class="form-label">TODO TITLE</label>
+      <input type="text" class="form-control" name="title">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <input type="text" class="form-control" name="desc">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2 class="mb-0">Your TODOS 📝</h2>
+
+  <form method="GET" action="/" class="w-25">
+    <input
+      type="text"
+      name="search"
+      class="form-control"
+      placeholder="Search todo..."
+     value="{{ request.args.get('search', '') }}"
+
+    >
+  </form>
+</div>
+
+
+  {% if allTodo|length == 0 %}
+    <div class="alert alert-primary">
+      <h5>Your Todo Record Is Not Found ❌</h5>
+      
+    </div>
+
+  {% else %}
+    <table class="table">
+      <thead>
+        <tr>
+          <th>SNO</th>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Time</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for todo in allTodo %}
+        <tr>
+          <th>{{ loop.index }}</th>
+
+          <td class="{% if todo.completed %}text-decoration-line-through text-muted{% endif %}">
+            {{ todo.title }}
+          </td>
+
+          <td>{{ todo.desc }}</td>
+          <td>{{ todo.date_created }}</td>
+
+          <td>
+            <form action="/status/{{ todo.sno }}"method="POST" >
+              <input type="checkbox"
+                     onchange="this.form.submit()"
+                     {% if todo.completed %}checked{% endif %}>
+            </form>
+          </td>
+
+          <td>
+            <a href="/delete/{{ todo.sno }}" class="btn btn-danger btn-sm">Delete</a>
+            <a href="/update/{{ todo.sno }}" class="btn btn-success btn-sm">Update</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% endif %}
+</div>
+
+{% endblock body %}
