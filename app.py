@@ -127,12 +127,12 @@ def status(sno):
 def about():
     return render_template("about.html")
 
+ with app.app_context():
+        db.create_all()
 
 # -----------------------------
 # Run Application
 # -----------------------------
 if __name__ == "__main__":
-    with app.app_context():
-        db.create_all()
-
+   
     app.run()
