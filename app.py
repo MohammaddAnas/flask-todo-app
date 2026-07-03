@@ -127,7 +127,7 @@ def status(sno):
 def about():
     return render_template("about.html")
 
- with app.app_context():
+with app.app_context():
         db.create_all()
 
 # -----------------------------
