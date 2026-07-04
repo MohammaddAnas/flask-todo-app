@@ -14,7 +14,7 @@ A simple and responsive To-Do List web application built with Python Flask. This
 
 ### Home Page
 
-[Home Page](screenshots/home.png)
+![Home Page](screenshots/home.png)
 
 ### About Page
 
