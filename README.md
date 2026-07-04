@@ -8,7 +8,7 @@ A simple and responsive To-Do List web application built with Python Flask. This
 
 ## Repository
 
-**GitHub Repository:** https://github.com/MohammaddAnas/flask-todo-app
+**GitHub Repository:** https://github.com/MohammaddAnas/flask-todo-app.git
 
 ## Screenshots
 
